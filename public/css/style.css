@@ -1,0 +1,85 @@
+.postit {
+    line-height: 1;
+    text-align:center;     
+    width: 275px;    
+    margin: 25px;    
+    min-height:200px;
+    max-height:200px;
+    padding-top:0px;
+    position:relative;   
+    border:1px solid #E8E8E8;  
+    border-top:60px solid;
+    font-family:'Reenie Beanie';    
+    font-size:22px;      
+    border-bottom-right-radius: 60px 5px;
+    display:inline-block;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.custom-pallete button {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+}
+
+.yellow {
+    border-color: #fbfb82;
+    background: #ffff88;
+}
+
+.green {
+    border-color: #8efb82;
+    background: #8eff88;
+}
+
+.blue {
+    border-color: #88a4fb;
+    background: #88a6ff;
+}
+
+.pink {
+    border-color: #fb82c0;
+    background: #ff88c1;
+}
+
+.postit:after {     
+    content: "";
+    position:absolute;
+    z-index:-1;
+    right:-0px; bottom:20px;
+    width:200px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow:2px 15px 5px rgba(0, 0, 0, 0.40);
+    -moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+    -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+    -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+    -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+    transform: matrix(-1, -0.1, 0, 1, 0, 0);
+}
+
+body {
+    padding: 10px;
+    text-align:center;
+}
+
+.new {
+    display: none;
+}
+
+.cancel {
+    display: none;
+}
+
+.transparent-input {
+    padding: 5px;
+    background: transparent;
+    height: 100px;
+    width: 250px;
+    font-size:16px;
+    text-align: center;
+    border: none;
+    resize: none;
+    outline-color: black;
+}

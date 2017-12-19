@@ -1,0 +1,71 @@
+<html ng-app="postit">
+
+<head>
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="core.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/png" href="/img/favicon-icon.png"/>
+    <title>Post It!</title>
+</head>
+
+<body style="background-color: #FFEEDD" ng-controller="mainController">
+    <div>
+        <div ng-show="init">
+            <button ng-click="addNew()" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span> Adicionar um novo PostIt 
+            </button>
+        </div>
+        
+        <div ng-show="new">
+            <button ng-click="cancelNew()" class="btn btn-danger">
+                <span class="glyphicon glyphicon-minus"></span> Cancelar 
+            </button>
+            <br>
+            <div class="postit" ng-class="color">
+                <textarea ng-model="postitBody" class="transparent-input"></textarea>
+            </div>
+
+            <div class="custom-pallete">
+                <button ng-click="setCollor('yellow')" class="btn btn-xs yellow"></button>
+                <button ng-click="setCollor('blue')" class="btn btn-xs blue"></button>
+                <button ng-click="setCollor('pink')" class="btn btn-xs pink"></button>
+                <button ng-click="setCollor('green')" class="btn btn-xs green"></button>
+            </div>
+            <br>
+            <button ng-click="confirmAdd()" class="btn btn-success">
+                <span class="glyphicon glyphicon-ok"></span> Confirmar
+            </button>
+            <br>
+        </div>
+        <br>
+        <div>
+            <span ng-show="errorMessage" class="alert alert-danger">
+                A mensagem inserida é inválida.
+            </span>
+            <span ng-show="successMessage" class="alert alert-success">
+                Postit adicionado com sucesso.
+            </span>
+        </div>
+    </div>
+
+    <hr style="width: 100%; color: black; height: 1px; background-color:black;" />
+
+    <span ng-show="deleteMessage" class="alert alert-success">
+        Postit removido.
+    </span>
+    <br>
+    <div ng-repeat="note in notes" style="display:inline-block">
+        <div class="postit" ng-class="note.color">
+            <textarea class="transparent-input" ng-trim="true" readonly>{{ note.body }}</textarea>
+            <h5><span class="label label-primary">{{ note.created_at }}</span></h5>
+            <button ng-click="deletePostIt(note.id)" class="btn btn-sm btn-danger">
+                <i class="glyphicon glyphicon-trash"></i>
+            </button>
+        </div>
+    </div>
+    
+</body>
+
+</html>
